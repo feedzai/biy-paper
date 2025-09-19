@@ -1,0 +1,92 @@
+[
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:28:00Z",
+    "prompt_id": "curly_example",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "{3}"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:29:39Z",
+    "prompt_id": "curly",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "{3}"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:30:38Z",
+    "prompt_id": "round_example",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "(3)"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:31:29Z",
+    "prompt_id": "round",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "(3)"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:33:01Z",
+    "prompt_id": "square_example",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "[3]"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:34:19Z",
+    "prompt_id": "square",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "[3]"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:35:11Z",
+    "prompt_id": "angle_example",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "<3>"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:36:29Z",
+    "prompt_id": "angle",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "<3>"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:37:28Z",
+    "prompt_id": "single_number",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "3"
+  },
+  {
+    "model": "ggml-org/Qwen2.5-VL-7B-Instruct-GGUF:Q4_K_M",
+    "provider": "llama.cpp v5940",
+    "timestamp": "2025-07-21T12:38:21Z",
+    "prompt_id": "boxed",
+    "prompt_strategy": "zero_shot",
+    "example_id": "fuzzy_datasets_d1+default",
+    "response": "\\boxed{3}"
+  }
+]

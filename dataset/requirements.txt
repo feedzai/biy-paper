@@ -1,0 +1,16 @@
+datasets[vision]==3.6.0
+gaveta==0.6.0
+humanize==4.12.3
+loguru==0.7.3
+mypy[faster-cache]==1.16.1
+pandas-stubs==2.2.3.250527
+pandas[output-formatting]==2.2.3
+pillow==11.2.1
+playwright==1.53.0
+pyod==2.0.5
+python-fasthtml==0.12.21
+ruff==0.11.2
+scikit-learn==1.6.1
+scipy-stubs[scipy]==1.15.3.0
+shapely==2.1.1
+types-shapely==2.1.0.20250512

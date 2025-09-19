@@ -1,0 +1,18 @@
+# .ruff_cache/: https://docs.astral.sh/ruff/settings/#cache-dir
+
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.venv/
+
+.DS_Store
+.env
+
+input/figma
+
+input/*.parquet
+input/*.png
+input/**/*.jsonl
+input/**/custom_ids.json
+results/**/*.parquet
+results/open_ai/validation/

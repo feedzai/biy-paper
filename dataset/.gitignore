@@ -1,0 +1,13 @@
+# .ruff_cache/: https://docs.astral.sh/ruff/settings/#cache-dir
+# .sesskey: https://github.com/AnswerDotAI/fasthtml/blob/0.12.19/fasthtml/fastapp.py#L51
+
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.venv/
+
+.DS_Store
+.sesskey
+
+input/
+output/

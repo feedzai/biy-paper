@@ -1,0 +1,18 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "mypy-type-checker.importStrategy": "fromEnvironment",
+
+  "files.readonlyInclude": {
+    "deprecated/**/{.env.example,*.json,*.py,*.txt}": true
+  },
+
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "estimate_costs.py": "estimate_anthropic_costs.py, estimate_google_costs.py",
+    "generate_results.py": "evaluate_counts.py, evaluate_consistency.py, evaluate_cluster_bboxes.py, evaluate_points.py, evaluate_chart_designs.py",
+    "get_header_images.py": "get_good_bad_images.py",
+    "prepare_google_batches.py": "run_google_batches.py, upload_google_batches.py, download_google_results.py",
+    "prepare_open_ai_batches.py": "run_open_ai_batches.py, check_open_ai_batches.py, download_open_ai_results.py"
+  }
+}
