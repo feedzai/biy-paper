@@ -9,5 +9,7 @@ __pycache__/
 .DS_Store
 .sesskey
 
-input/
+input/validation/
 output/
+
+input/images.zip
