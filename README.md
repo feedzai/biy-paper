@@ -1,6 +1,8 @@
 # Benchmark It Yourself (BIY): Preparing a Dataset and Benchmarking AI Models for Scatterplot-Related Tasks
 
-Supplementary materials for the BIY paper.
+[![arXiv](https://img.shields.io/badge/arXiv-1234.56789-b31b1b.svg)](https://arxiv.org/abs/2510.06071)
+
+Supplementary materials for the [BIY paper](https://research.feedzai.com/publication/benchmark-it-yourself-biy-preparing-a-dataset-and-benchmarking-ai-models-for-scatterplot-related-tasks/).
 
 ## Dataset
 
