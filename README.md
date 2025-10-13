@@ -6,15 +6,14 @@ Supplementary materials for the [BIY paper](https://research.feedzai.com/publica
 
 ## How to run the repo
 
-1. Generate the dataset in `dataset/` (images + metadata) and export `dataset/output/dataset.parquet`.
-2. Copy `dataset/output/dataset.parquet` into `benchmark/input/dataset.parquet`.
-3. Run the benchmark in `benchmark/`.
+1. Generate the parquet file in `dataset/` (The dataset is already provided in the `dataset/input` folder).
+2. Run the benchmark in `benchmark/`.
 
-See detailed steps in `dataset/README.md` and `benchmark/README.md`.
+See detailed steps in [`dataset/README.md`](https://github.com/feedzai/biy-paper/tree/main/dataset#readme) and [`benchmark/README.md`](https://github.com/feedzai/biy-paper/tree/main/benchmark#readme).
 
 ## Environment and API keys
 
-Create a `.env` file inside `benchmark/` (used by the benchmark scripts).
+Define the following variables in the `.env` file:
 
 ```bash
 # OpenAI (required for OpenAI runs)
@@ -24,9 +23,6 @@ OPENAI_API_KEY=...
 GOOGLE_CLOUD_PROJECT=... # Your project id
 GOOGLE_CLOUD_LOCATION=...  # Optional -> defaults to us-central1
 GOOGLE_CLOUD_OUTPUT_BUCKET=... # Your bucket path
-
-# Anthropic
-ANTHROPIC_API_KEY=... # Optional -> used by cost estimation scripts
 ```
 
 Google authentication: use Application Default Credentials (ADC).
@@ -39,7 +35,7 @@ Where these are needed:
 
 - `OPENAI_API_KEY`: used by `benchmark/run_open_ai_batches.py`, `benchmark/check_open_ai_batches.py`, `benchmark/download_open_ai_results.py`.
 - `GOOGLE_CLOUD_PROJECT`, `GOOGLE_CLOUD_LOCATION`, `GOOGLE_CLOUD_OUTPUT_BUCKET`: used by `benchmark/prepare_google_batches.py`, `benchmark/upload_google_batches.py`, `benchmark/run_google_batches.py`, `benchmark/download_google_results.py`.
-- `ANTHROPIC_API_KEY`: used by `benchmark/estimate_anthropic_costs.py` to estimate token costs (not required to run the main benchmark flows).
+- `ANTHROPIC_API_KEY`: used by `benchmark/estimate_anthropic_costs.py` to estimate token costs (optional).
 
 Note: The `dataset/` stage does not require any API keys.
 
