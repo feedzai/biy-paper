@@ -365,6 +365,20 @@ def compute_point_metrics(
     }
 
 
+def _format_bar_value(dataset: pd.DataFrame, metric_col: str, group: str, bar: str) -> str:
+    n_decimals = 2
+
+    if metric_col == "mae":
+        return str(
+            round(
+                dataset.loc[(dataset["model"] == group) & (dataset["prompt_strategy"] == bar), metric_col].item(),
+                n_decimals,
+            )
+        )
+
+    return rf"{round(dataset.loc[(dataset['model'] == group) & (dataset['prompt_strategy'] == bar), metric_col].item() * 100, n_decimals)}\%"
+
+
 def generate_grouped_bar_chart_alt_text(dataset: pd.DataFrame, prompt_id: str, metric_col: str) -> str:
     # Based on Accessible Bar Charts Through Textual Description Templates (https://journals-sol.sbc.org.br/index.php/jbcs/article/view/2301):
 
@@ -374,20 +388,17 @@ def generate_grouped_bar_chart_alt_text(dataset: pd.DataFrame, prompt_id: str, m
     alt_text_template = f"This is a grouped vertical bar chart. It's title is {title}. The y-axis legend is {y_axis_label}. The x-axis legend is {x_axis_label}."
 
     groups = list(MODEL_TO_LABEL.values())
+    groups_value = num2words(len(groups), lang="en", to="cardinal") if len(groups) < 10 else len(groups)
     alt_text_template = (
-        f"{alt_text_template} The chart is made up by {len(groups)} groups of bars: {', '.join(groups)}."
+        f"{alt_text_template} The chart is made up by {groups_value} groups of bars: {', '.join(groups)}."
     )
 
     bars = list(PROMPT_STRATEGY_TO_LABEL.values())
-    alt_text_template = f"{alt_text_template} Each group contains {len(bars)} bars: {', '.join(bars)}, which will be presented in that order."
+    bars_value = num2words(len(bars), lang="en", to="cardinal") if len(bars) < 10 else len(bars)
+    alt_text_template = f"{alt_text_template} Each group contains {bars_value} bars: {', '.join(bars)}, which will be presented in that order."
 
     for index, group in enumerate(groups, start=1):
-        values = ", ".join(
-            [
-                rf"{round(dataset.loc[(dataset['model'] == group) & (dataset['prompt_strategy'] == bar), metric_col].item() * 100, 2)}\%"
-                for bar in bars
-            ]
-        )
+        values = ", ".join([_format_bar_value(dataset, metric_col, group, bar) for bar in bars])
         alt_text_template = f"{alt_text_template} The {num2words(index, lang='en', to='ordinal')} group of bars is {group} and has values {values}."
 
     return alt_text_template
