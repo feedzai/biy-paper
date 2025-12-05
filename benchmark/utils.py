@@ -385,12 +385,12 @@ def generate_grouped_bar_chart_alt_text(dataset: pd.DataFrame, prompt_id: str, m
     title = f"performance for the {PROMPT_ID_TO_LABEL[prompt_id]} task"
     y_axis_label = f"{METRIC_ID_TO_LABEL[metric_col]}"
     x_axis_label = "model"
-    alt_text_template = f"This is a grouped vertical bar chart. It's title is {title}. The y-axis legend is {y_axis_label}. The x-axis legend is {x_axis_label}."
+    alt_text_template = f"This is a grouped vertical bar chart. Its title is {title}. The y-axis legend is {y_axis_label}. The x-axis legend is {x_axis_label}."
 
     groups = list(MODEL_TO_LABEL.values())
     groups_value = num2words(len(groups), lang="en", to="cardinal") if len(groups) < 10 else len(groups)
     alt_text_template = (
-        f"{alt_text_template} The chart is made up by {groups_value} groups of bars: {', '.join(groups)}."
+        f"{alt_text_template} The chart is made up of {groups_value} groups of bars: {', '.join(groups)}."
     )
 
     bars = list(PROMPT_STRATEGY_TO_LABEL.values())
