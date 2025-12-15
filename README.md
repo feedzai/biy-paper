@@ -20,6 +20,7 @@ Define the following variables in the `.env` file:
 OPENAI_API_KEY=...
 
 # Google Vertex AI + GCS (required for Google runs)
+GOOGLE_GENAI_USE_VERTEXAI=True
 GOOGLE_CLOUD_PROJECT=... # Your project id
 GOOGLE_CLOUD_LOCATION=...  # Optional -> defaults to us-central1
 GOOGLE_CLOUD_OUTPUT_BUCKET=... # Your bucket path
