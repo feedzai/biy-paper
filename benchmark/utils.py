@@ -14,8 +14,10 @@ import numpy as np
 import pandas as pd
 import torch
 from gaveta.files import ensure_dir
+from loguru import logger
 from num2words import num2words
 from openai.types.chat import ChatCompletionMessageParam
+from pandas.io.formats.style_render import _escape_latex
 from PIL import Image
 from pydantic import BaseModel
 from torchvision.ops import box_iou
@@ -265,6 +267,12 @@ def write_model_json(model: BaseModel, output_path: Path) -> None:
         f.write("\n")
 
 
+def write_text(text: str, output_path: Path) -> None:
+    with output_path.open(mode="w", encoding="utf-8") as f:
+        f.write(text)
+        f.write("\n")
+
+
 def generate_custom_id(model: str, prompt_id: str, prompt_strategy: str, example_id: str) -> str:
     return "+".join([model, prompt_id, prompt_strategy, example_id])
 
@@ -376,7 +384,7 @@ def _format_bar_value(dataset: pd.DataFrame, metric_col: str, group: str, bar: s
             )
         )
 
-    return rf"{round(dataset.loc[(dataset['model'] == group) & (dataset['prompt_strategy'] == bar), metric_col].item() * 100, n_decimals)}\%"
+    return rf"{round(dataset.loc[(dataset['model'] == group) & (dataset['prompt_strategy'] == bar), metric_col].item() * 100, n_decimals)}%"
 
 
 def generate_grouped_bar_chart_alt_text(dataset: pd.DataFrame, prompt_id: str, metric_col: str) -> str:
@@ -412,6 +420,8 @@ def generate_grouped_bar_chart(dataset: pd.DataFrame, prompt_id: str, metric_col
     y_domain: tuple[int, int] = (0, 1) if metric_col != "mae" else (0, 20)
     y_values: list[float] = [0, 0.25, 0.5, 0.75, 1] if metric_col != "mae" else [0, 5, 10, 15, 20]
     y_format = "%" if metric_col != "mae" else "s"
+
+    chart_filename = f"{prompt_id}_{metric_col}"
 
     dataset_to_plot = dataset.query("prompt_id == @prompt_id").assign(
         prompt_strategy=dataset["prompt_strategy"].map(PROMPT_STRATEGY_TO_LABEL),
@@ -487,12 +497,14 @@ def generate_grouped_bar_chart(dataset: pd.DataFrame, prompt_id: str, metric_col
         gridColor="#e2e8f0", domainColor="#64748b", tickColor="#64748b", labelColor="#0f172a"
     ).configure_legend(labelColor="#0f172a", titleColor="#0f172a").configure_view(stroke=None).properties(
         height=height
-    ).save(ALL_RESULTS / f"{prompt_id}_{metric_col}.png", scale_factor=8)
+    ).save(ALL_RESULTS / f"{chart_filename}.png", scale_factor=8)
 
-    print(
-        generate_grouped_bar_chart_alt_text(
-            dataset_to_plot,
-            prompt_id,
-            metric_col,
-        )
+    alt_text = generate_grouped_bar_chart_alt_text(
+        dataset_to_plot,
+        prompt_id,
+        metric_col,
     )
+
+    logger.info(alt_text)
+    write_text(alt_text, ALL_RESULTS / f"{chart_filename}.txt")
+    write_text(_escape_latex(alt_text), ALL_RESULTS / f"{chart_filename}_latex.txt")

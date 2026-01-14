@@ -8,11 +8,12 @@ __pycache__/
 .DS_Store
 .env
 
-input/figma
+input/figma/
+results/open_ai/validation/
 
 input/*.parquet
 input/*.png
 input/**/*.jsonl
 input/**/custom_ids.json
 results/**/*.parquet
-results/open_ai/validation/
+results/all/*_latex.txt
