@@ -35,8 +35,14 @@ preferred-citation:
   month: 11
   url: https://visxgenai.github.io/subs-2025/1342/1342-doc.pdf
   collection-title: "VISxGenAI: 1st Workshop on GenAI, Agents, and the Future of VIS"
+  identifiers:
+    - type: url
+      value: https://visxgenai.github.io/
+      description: Workshop website
   conference:
-    name: "IEEE VIS 2025"
-    date-start: 2025-11-03
-    date-end: 2025-11-03
-    website: https://visxgenai.github.io/
+    name: "IEEE VIS"
+    city: Vienna
+    country: AT
+    date-start: 2025-11-02
+    date-end: 2025-11-07
+    website: https://ieeevis.org/year/2025/welcome
