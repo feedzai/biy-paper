@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+title: biy-paper
+type: software
+authors:
+  - name: Feedzai
+    email: oss-licenses@feedzai.com
+repository-code: https://github.com/feedzai/biy-paper
+url: https://github.com/feedzai/biy-paper
+repository-artifact: https://github.com/feedzai/biy-paper
+abstract: Supplementary materials for the BIY paper.
+keywords:
+  - ai
+  - data visualization
+  - generative ai
+  - scatterplots
+license: Apache-2.0
+date-released: 2025-08-20
+preferred-citation:
+  type: conference-paper
+  title: "Benchmark It Yourself (BIY): Preparing a Dataset and Benchmarking AI Models for Scatterplot-Related Tasks"
+  authors:
+    - given-names: João
+      family-names: Palmeiro
+      email: joao.palmeiro@feedzai.com
+    - given-names: Diogo
+      family-names: Duarte
+      email: diogo.duarte@feedzai.com
+    - given-names: Rita
+      family-names: Costa
+      email: rita.costa@feedzai.com
+    - given-names: Pedro
+      family-names: Bizarro
+      email: pedro.bizarro@feedzai.com
+  year: 2025
+  month: 11
+  conference:
+    name: "VISxGenAI: 1st Workshop on GenAI, Agents, and the Future of VIS (IEEE VIS 2025)"
+    city: Vienna
+    country: AT
+    date-start: 2025-11-03
+    date-end: 2025-11-03
+    website: https://visxgenai.github.io/
